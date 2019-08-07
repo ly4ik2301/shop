@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('catalog/{id}','CatalogController@getIndex');
+Route::get('/basket','BasketController@getIndex');

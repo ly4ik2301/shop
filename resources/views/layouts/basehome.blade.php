@@ -20,10 +20,11 @@
 
 <body>
 
+
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <a class="navbar-brand" href="#">магазин одежды</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,6 +36,7 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li>
@@ -84,8 +86,27 @@
     <div class="row">
 
         <div class="col-lg-3">
+            <div id="basket">
+                <table id="bascets">
+                    <tbody>
+                    <tr style="display: none;" class="hPb">
+                        <td>Выбрано:</td>
+                        <td><span id="totalGoods">0</span> товаров</td>
+                        <td>Сумма: &asymp; </td>
+                        <td><span id="totalPrice">0</span> руб.</td>
+                    </tr>
+                    <tr style="display: table-row;" class="hPe">
+                        <td colspan="2">Корзина пуста</td>
+                    </tr>
+                    <tr>
+                        <td><a style="display: none;" id="clearBasket" href="#">Очистить</a></td>
+                        <td><a style="display: none;" id="checkOut" href="{{asset('basket')}}">Оформить</a></td>
+                    </tr>
+                    </tbody>
 
-            <h1 class="my-4">Shop Name</h1>
+
+                </table>
+            </div>
             <div class="list-group">
                 @foreach($catalogs as $obj)
                     <a href="{{asset('/catalog/'.$obj->id)}}" class="list-group-item">{{$obj->name}}</a>
@@ -116,9 +137,10 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+<script src="/public/vendor/jquery/jquery.min.js"></script>
+<script src="/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('public/js/jquery.cookie.js')}}"></script>
+<script src="{{asset('public/js/cart.js')}}"></script>
 </body>
 
 </html>
