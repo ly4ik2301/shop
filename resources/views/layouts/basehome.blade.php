@@ -106,6 +106,7 @@
 
 
                 </table>
+                {{(isset($_COOKIE['basket']))?$_COOKIE['basket']:0}}
             </div>
             <div class="list-group">
                 @foreach($catalogs as $obj)
@@ -141,6 +142,8 @@
 <script src="/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="{{asset('public/js/jquery.cookie.js')}}"></script>
 <script src="{{asset('public/js/cart.js')}}"></script>
+@section('scripts')
+@show
 </body>
 
 </html>

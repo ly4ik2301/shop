@@ -1,5 +1,8 @@
 @extends('layouts.basehome')
-
+@section('scripts')
+@parent
+<script src="{{asset('public/js/order.js')}}"></script>
+@endsection
 @section('content')
     <table width="100%" class="table table-bordered">
         <tr>
@@ -8,6 +11,7 @@
             <th>Цена</th>
             <th>Количество</th>
             <th>Сумма</th>
+            <th>Действие</th>
         </tr>
 @php
  $itogo = 0;
@@ -20,14 +24,18 @@
         <tr>
             <td><img src="http://laravel/public/storage/{{$value->picture}}" width="100%"/> </td>
             <td>{{$value->name}} </td>
-            <td>{{$value->price}} </td>
-            <td>{{$cook_count[$value->id]}}</td>
-            <td>{{$summa}}</td>
+            <td><span id ="price_{{$value->id}}">{{$value->price}}</span></td>
+            <td>
+                <input type="number" class="count" value="{{$cook_count[$value->id]}}" min=1 max=100 data_id="{{$value->id}}" />
+            </td>
+
+            <td><span id ="summa_{{$value->id}}" class="summa">{{$summa}}</span></td>
+            <td><a href="{{asset('basket/delete/'.$value->id)}}">удалить</a></td>
         </tr>
         @endforeach
         <tr>
             <td colspan="4">Итого</td>
-            <td>{{$itogo}}</td>
+            <td><span id ="itog">{{$itogo}}</span></td>
         </tr>
     </table>
 <form action="" method="post">
