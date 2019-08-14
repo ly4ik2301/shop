@@ -38,7 +38,8 @@
             <td><span id ="itog">{{$itogo}}</span></td>
         </tr>
     </table>
-<form action="" method="post">
+<form action="{{asset('order')}}" method="post">
+    {!! csrf_field() !!}
 
     <table border=0>
         <tr>
