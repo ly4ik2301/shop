@@ -15,7 +15,7 @@ class OrderController extends Controller
         $obj->address=$r['address'];
         $obj->body=$_COOKIE['basket'];
         $obj->ip=$_SERVER['REMOTE_ADDR'];
-        $obj->user_id=Auth::user()->id;
+        $obj->user_id=Auth::guest()?0:Auth::user()->id;
         $obj->comment='';
         $obj->status='';
         $obj->save();
