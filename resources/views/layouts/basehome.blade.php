@@ -46,6 +46,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{asset('archive')}}">archive</a>
+                </li>
                 <!-- Authentication Links -->
                 @guest
                 <li class="nav-item">
